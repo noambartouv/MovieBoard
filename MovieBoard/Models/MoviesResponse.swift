@@ -11,7 +11,7 @@ import Foundation
 public struct MoviesResponse: Codable {
     
     public let page: Int
-    public let totalResults: Int
-    public let totalPages: Int
+    public let total_results: Int
+    public let total_pages: Int
     public let results: [MovieQueryResult]
 }

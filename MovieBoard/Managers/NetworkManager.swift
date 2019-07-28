@@ -7,8 +7,19 @@
 //
 
 import Foundation
+import Alamofire
 
 class NetworkManager {
+    
+    private static var instance: NetworkManager = NetworkManager()
+    
+//    public static func getInstance() -> NetworkManager {
+//        if NetworkManager.instance != nil {
+//            NetworkManager.instance = NetworkManager()
+//        }
+//
+//        return NetworkManager.instance as! NetworkManager
+//    }
     
     private let jsonDecoder: JSONDecoder = {
         let jsonDecoder = JSONDecoder()
@@ -35,6 +46,35 @@ class NetworkManager {
 //
 //    }
 //    task.resume()
+    
+    func searchForMovies(URLstring: String) {
+        Alamofire.request(URL(string: "\(URLstring)")!)
+            .validate()
+            .response { (response) in
+                
+                print("Request: \(String(describing: response.request))")
+                print("Response: \(String(describing: response.response))")
+                print("Error: \(String(describing: response.error))")
+                
+                if let data = response.data {
+                    do {
+                        let decoder = JSONDecoder()
+                        let moviesResponse = try decoder.decode(MoviesResponse.self, from: data)
+                        self.populateMoviesManager(moviesResponse: moviesResponse)
+                    } catch {
+                        print("Error: ", error)
+                    }
+                }
+        }
+    }
+    
+    private func populateMoviesManager(moviesResponse: MoviesResponse) {
+        let moviesManager = MovieListManager.instance
+        moviesManager.emptyList()
+        for movieResult in moviesResponse.results {
+            moviesManager.addMovie(movieResult)
+        }
+    }
     
     
 }

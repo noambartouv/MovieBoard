@@ -12,7 +12,7 @@ public struct MovieQueryResult: Codable {
     var vote_count: Int
     var id: Int
     var video: Bool
-    var vote_average: Int
+    var vote_average: Double
     var title: String
     var popularity: Double
     var poster_path: String

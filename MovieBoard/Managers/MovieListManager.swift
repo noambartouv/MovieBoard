@@ -8,15 +8,25 @@
 
 import Foundation
 
-struct MovieListManager {
+class MovieListManager {
+    
+    static var instance: MovieListManager = MovieListManager()
+    
+//    public static func getInstance() -> MovieListManager {
+//        if MovieListManager.instance != nil {
+//            MovieListManager.instance = MovieListManager()
+//        }
+//
+//        return MovieListManager.instance
+//    }
     
     var movieList: Dictionary<String,MovieQueryResult> = Dictionary()
     
-    mutating func addMovie(_ newMovie: MovieQueryResult) {
+    func addMovie(_ newMovie: MovieQueryResult) {
         movieList[newMovie.title] = newMovie
     }
     
-    mutating func emptyList() {
+    func emptyList() {
         movieList = Dictionary()
     }
     

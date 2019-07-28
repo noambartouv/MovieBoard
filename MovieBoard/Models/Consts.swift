@@ -15,7 +15,7 @@ public struct Consts {
     static let imageBaseURL: String = "http://image.tmdb.org/t/p/w185//"
     
     // URLS
-    static let mostPopularMoviesURL: URL = URL(string: "\(queryBaseURL)/discover/movie?api_key=\(apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false")!
+    static let mostPopularMoviesURL: String = "\(queryBaseURL)/discover/movie?api_key=\(apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false"
     
     
     

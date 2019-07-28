@@ -1,0 +1,6 @@
+framework module Pods_MovieBoard {
+  umbrella header "Pods-MovieBoard-umbrella.h"
+
+  export *
+  module * { export * }
+}
