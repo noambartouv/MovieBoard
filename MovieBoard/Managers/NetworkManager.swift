@@ -11,7 +11,8 @@ import Alamofire
 
 class NetworkManager {
     
-    private static var instance: NetworkManager = NetworkManager()
+    static var instance: NetworkManager = NetworkManager()
+    var movieDataList: MovieDataListing? = nil
     
 //    public static func getInstance() -> NetworkManager {
 //        if NetworkManager.instance != nil {
@@ -68,11 +69,20 @@ class NetworkManager {
         }
     }
     
+    func retrieveMovieImage(URLstring: String, responseBlock: @escaping (UIImage?) -> ()) {
+        Alamofire.request(URLstring, method: .get).responseData { response in
+            guard let data = response.result.value else { return }
+            if let data = response.result.value {
+                let image = UIImage(data: data)
+                responseBlock(image)
+            }
+        }
+    }
+    
     private func populateMoviesManager(moviesResponse: MoviesResponse) {
-        let moviesManager = MovieListManager.instance
-        moviesManager.emptyList()
+        movieDataList?.emptyList()
         for movieResult in moviesResponse.results {
-            moviesManager.addMovie(movieResult)
+            movieDataList?.addMovie(movieResult)
         }
     }
     

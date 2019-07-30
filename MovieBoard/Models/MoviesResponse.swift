@@ -9,7 +9,6 @@
 import Foundation
 
 public struct MoviesResponse: Codable {
-    
     public let page: Int
     public let total_results: Int
     public let total_pages: Int

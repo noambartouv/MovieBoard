@@ -7,40 +7,59 @@
 //
 
 import UIKit
+import Alamofire
 
 class MoviesGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    let items = ["0","1","2","3","4"]
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var viewModel: MovieDataListing? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        NetworkManager().searchForMovies(URLstring: Consts.mostPopularMoviesURL)
+        viewModel = MovieGridViewModel(movieView: self)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return viewModel?.getMoviesCount() ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MovieGridCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieGridCollectionViewCell
         
-        cell.movieImage.image = UIImage(named: "Dog")
+        if let image = viewModel?.getMovieImage(index: indexPath.row, callbackBlock: { [weak self] serverImage -> Void in
+            guard let strongSelf = self else { return }
+            cell.movieImage.image = serverImage
+        }) {
+            cell.movieImage.image = image
+        }
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("wow")
-        print(MovieListManager.instance.movieList)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenSize = UIScreen.main.bounds
         let screenWidth = screenSize.width
+        let cellWidth = screenWidth / 2
+        let cellHeight = cellWidth * 1.5027027027
         
-        return CGSize(width: screenWidth / 2.2, height: screenWidth / 2)
+        return CGSize(width: cellWidth, height: cellHeight)
     }
 
+}
+
+extension MoviesGridViewController: IMoviesView {
+    
+    func addItemtToView(item: MovieQueryResult) {
+        guard let existingItemCount = viewModel?.getMoviesCount() else { return }
+        let indexPath = IndexPath(row: existingItemCount - 1, section: 0)
+        collectionView.insertItems(at: [indexPath])
+    }
+    
 }
 

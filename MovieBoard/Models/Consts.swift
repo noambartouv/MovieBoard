@@ -12,7 +12,7 @@ public struct Consts {
     
     static let apiKey: String = "b7364d4438c755310cda77571ad8f84a"
     static let queryBaseURL: String = "https://api.themoviedb.org/3"
-    static let imageBaseURL: String = "http://image.tmdb.org/t/p/w185//"
+    static let imageBaseURL: String = "https://image.tmdb.org/t/p/w185"
     
     // URLS
     static let mostPopularMoviesURL: String = "\(queryBaseURL)/discover/movie?api_key=\(apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false"
