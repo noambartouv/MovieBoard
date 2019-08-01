@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  MovieBoard
-//
-//  Created by Noam Bar-Touv on 25/07/2019.
-//  Copyright © 2019 Noam Bar-Touv. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

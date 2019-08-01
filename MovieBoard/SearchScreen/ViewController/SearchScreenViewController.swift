@@ -3,6 +3,10 @@ import UIKit
 
 class SearchScreenViewController: UIViewController, UISearchBarDelegate {
     
+    enum Constants {
+        static let searchOptioncell = "SearchOptionCell"
+    }
+    
     weak var selectionDelegate: SearchSelectionDelegate? = nil
     var searchOptions: [SearchOption] =
         [SearchOption(textToDisplay: "Most Popular", urlString: Consts.mostPopularMoviesURL),
@@ -30,7 +34,7 @@ extension SearchScreenViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SearchOptionCell", for: indexPath) as! SearchOptionViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.searchOptioncell, for: indexPath) as! SearchOptionViewCell
         cell.searchLabel.text = searchOptions[indexPath.row].textToDisplay
         return cell
     }

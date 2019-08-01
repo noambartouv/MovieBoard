@@ -19,7 +19,8 @@ class MoviesGridViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard segue.identifier == Constants.searchSegue, let searchScreen = segue.destination as? SearchScreenViewController else { return }
+        guard segue.identifier == Constants.searchSegue,
+            let searchScreen = segue.destination as? SearchScreenViewController else { return }
         searchScreen.selectionDelegate = self
     }
     
@@ -32,8 +33,7 @@ extension MoviesGridViewController: UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let currentDataSize = viewModel?.getMoviesCount() else { return }
-        if indexPath.row == currentDataSize - 8 {
+        if indexPath.row == collectionView.numberOfItems(inSection: 0) - 8 {
             viewModel?.fetchNewPage()
         }
     }
@@ -68,10 +68,8 @@ extension MoviesGridViewController: UICollectionViewDelegateFlowLayout {
         let screenWidth = screenSize.width
         let cellWidth = screenWidth / 2
         let cellHeight = cellWidth * 1.5027027027
-        
         return CGSize(width: cellWidth, height: cellHeight)
     }
-    
 }
 
 extension MoviesGridViewController: SearchSelectionDelegate {
@@ -79,7 +77,6 @@ extension MoviesGridViewController: SearchSelectionDelegate {
     func didTapChoice(urlString: String) {
         viewModel?.newMovieFetch(urlString: urlString)
     }
-    
 }
 
 extension MoviesGridViewController: VCDelegate {
@@ -93,7 +90,6 @@ extension MoviesGridViewController: VCDelegate {
     func resetViewData() {
         collectionView.reloadData()
     }
-    
 }
 
 extension MoviesGridViewController {
