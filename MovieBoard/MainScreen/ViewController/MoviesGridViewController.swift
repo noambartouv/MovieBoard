@@ -49,8 +49,7 @@ extension MoviesGridViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: MovieGridCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.movieCell, for: indexPath) as! MovieGridCollectionViewCell
         
-        if let image = viewModel?.getMovieImage(index: indexPath.row, callbackBlock: { [weak self] serverImage -> Void in
-                guard let strongSelf = self else { return }
+        if let image = viewModel?.getMovieImage(index: indexPath.row, callbackBlock: { serverImage -> Void in
                 cell.movieImage.image = serverImage
             }) {
             cell.movieImage.image = image

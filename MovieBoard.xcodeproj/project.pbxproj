@@ -491,15 +491,16 @@
 			baseConfigurationReference = E3C5FF3C3E8818BB04F87747 /* Pods-MovieBoard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YD64MYJA6T;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 6AB34U4LY4;
 				INFOPLIST_FILE = MovieBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ILOVEIOS.MovieBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.betty.movie.search;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MoviesDev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -510,15 +511,17 @@
 			baseConfigurationReference = 27B245636387B658BA5DB7A9 /* Pods-MovieBoard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = YD64MYJA6T;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 6AB34U4LY4;
 				INFOPLIST_FILE = MovieBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ILOVEIOS.MovieBoard;
+				PRODUCT_BUNDLE_IDENTIFIER = com.betty.movie.search;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = MoviesDist;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

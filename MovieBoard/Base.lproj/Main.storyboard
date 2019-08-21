@@ -56,11 +56,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Gvc-Nw-xEs"/>
                                 </connections>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: TMDb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XB2-Ml-fzz">
+                                <rect key="frame" x="314" y="866" width="75" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="ar7-qX-OMC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="XB2-Ml-fzz" secondAttribute="trailing" constant="25" id="1Rs-pT-b71"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bmn-HD-KcV" secondAttribute="bottom" constant="-34" id="4gK-gN-rKQ"/>
                             <constraint firstItem="bmn-HD-KcV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="69T-7Z-r5b"/>
+                            <constraint firstAttribute="bottom" secondItem="XB2-Ml-fzz" secondAttribute="bottom" constant="10" id="Hoa-N2-WmQ"/>
+                            <constraint firstItem="XB2-Ml-fzz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ehJ-xD-Yo3"/>
                             <constraint firstItem="bmn-HD-KcV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fGI-8m-H2l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bmn-HD-KcV" secondAttribute="trailing" id="ylg-aF-Ebh"/>
                         </constraints>
