@@ -19,6 +19,10 @@ class SearchScreenViewController: UIViewController, UISearchBarDelegate {
         selectionDelegate?.didTapChoice(urlString: urlString)
         navigationController?.popViewController(animated: true)
     }
+    
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let totalCharacters = (searchBar.text?.appending(text).count ?? 0) - range.length
+        return totalCharacters <= 8    }
 }
 
 extension SearchScreenViewController: UITableViewDelegate {

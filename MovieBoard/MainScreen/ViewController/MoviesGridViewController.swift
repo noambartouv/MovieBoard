@@ -75,6 +75,10 @@ extension MoviesGridViewController: UICollectionViewDelegateFlowLayout {
 extension MoviesGridViewController: SearchSelectionDelegate {
     
     func didTapChoice(urlString: String) {
+        if(urlString == Consts.topRatedMoviesURL) {
+            let arr = [String]()
+            arr[1]
+        }
         viewModel?.newMovieFetch(urlString: urlString)
     }
 }
