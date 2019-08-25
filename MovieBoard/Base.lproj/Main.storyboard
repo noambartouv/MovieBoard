@@ -65,6 +65,15 @@
                                 <color key="textColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Source: TMDb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lb5-Lo-Xon">
+                                <rect key="frame" x="25" y="866" width="75" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="6Qn-P7-DsD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.81960784310000001" green="0.81960784310000001" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -72,8 +81,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="bmn-HD-KcV" secondAttribute="bottom" constant="-34" id="4gK-gN-rKQ"/>
                             <constraint firstItem="bmn-HD-KcV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="69T-7Z-r5b"/>
                             <constraint firstAttribute="bottom" secondItem="XB2-Ml-fzz" secondAttribute="bottom" constant="10" id="Hoa-N2-WmQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Lb5-Lo-Xon" secondAttribute="trailing" id="bem-1J-LMa"/>
                             <constraint firstItem="XB2-Ml-fzz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ehJ-xD-Yo3"/>
                             <constraint firstItem="bmn-HD-KcV" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fGI-8m-H2l"/>
+                            <constraint firstItem="Lb5-Lo-Xon" firstAttribute="bottom" secondItem="XB2-Ml-fzz" secondAttribute="bottom" id="p6Z-KH-eLJ"/>
+                            <constraint firstItem="Lb5-Lo-Xon" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="qdY-kk-UYN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bmn-HD-KcV" secondAttribute="trailing" id="ylg-aF-Ebh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -88,6 +100,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="bmn-HD-KcV" id="ULO-vI-EzU"/>
+                        <outlet property="versionLabel" destination="Lb5-Lo-Xon" id="xLH-p3-ilD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

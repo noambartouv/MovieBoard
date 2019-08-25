@@ -11,11 +11,15 @@ class MoviesGridViewController: UIViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var versionLabel: UILabel!
     var viewModel: MovieDataListing? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = MovieGridViewModel(movieView: self)
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+
+        versionLabel.text = "\(appVersion)"
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
